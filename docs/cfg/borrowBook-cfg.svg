@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1020" viewBox="0 0 1240 1020">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #1f2937; }
+      .title { font-size: 26px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .body { font-size: 17px; }
+      .small { font-size: 15px; }
+      .node { fill: #eef2ff; stroke: #334155; stroke-width: 2.2; }
+      .decision { fill: #fef3c7; stroke: #92400e; stroke-width: 2.2; }
+      .terminal { fill: #dcfce7; stroke: #166534; stroke-width: 2.2; }
+      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 2.2; }
+      .arrow { fill: none; stroke: #475569; stroke-width: 2.6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1240" height="1020" fill="#ffffff"/>
+
+  <text x="620" y="38" text-anchor="middle" class="title">CFG за borrowBook</text>
+
+  <ellipse cx="110" cy="100" rx="58" ry="30" class="terminal"/>
+  <text x="110" y="106" text-anchor="middle" class="body">Start</text>
+
+  <polygon points="300,45 390,100 300,155 210,100" class="decision"/>
+  <text x="300" y="106" text-anchor="middle" class="body">title.isEmpty()</text>
+
+  <polygon points="300,185 390,240 300,295 210,240" class="decision"/>
+  <text x="300" y="246" text-anchor="middle" class="body">author.isEmpty()</text>
+
+  <rect x="560" y="110" width="270" height="110" rx="14" class="error"/>
+  <text x="695" y="152" text-anchor="middle" class="body">throw</text>
+  <text x="695" y="178" text-anchor="middle" class="body">IllegalArgumentException</text>
+
+  <polygon points="300,370 410,430 300,490 190,430" class="decision"/>
+  <text x="300" y="436" text-anchor="middle" class="body">има следна книга?</text>
+
+  <polygon points="620,370 740,430 620,490 500,430" class="decision"/>
+  <text x="620" y="422" text-anchor="middle" class="small">book.getTitle()</text>
+  <text x="620" y="442" text-anchor="middle" class="small">.equalsIgnoreCase(title)</text>
+
+  <polygon points="940,370 1060,430 940,490 820,430" class="decision"/>
+  <text x="940" y="422" text-anchor="middle" class="small">book.getAuthor()</text>
+  <text x="940" y="442" text-anchor="middle" class="small">.equalsIgnoreCase(author)</text>
+
+  <polygon points="940,580 1060,640 940,700 820,640" class="decision"/>
+  <text x="940" y="646" text-anchor="middle" class="body">!book.isBorrowed()</text>
+
+  <rect x="1080" y="605" width="140" height="68" rx="14" class="node"/>
+  <text x="1150" y="646" text-anchor="middle" class="body">setBorrowed(true)</text>
+
+  <rect x="1080" y="715" width="140" height="68" rx="14" class="node"/>
+  <text x="1150" y="756" text-anchor="middle" class="body">print success</text>
+
+  <rect x="1080" y="825" width="140" height="68" rx="14" class="node"/>
+  <text x="1150" y="866" text-anchor="middle" class="body">return</text>
+
+  <rect x="170" y="560" width="260" height="95" rx="14" class="error"/>
+  <text x="300" y="600" text-anchor="middle" class="body">throw RuntimeException</text>
+  <text x="300" y="626" text-anchor="middle" class="body">"Book not found"</text>
+
+  <rect x="780" y="760" width="320" height="95" rx="14" class="error"/>
+  <text x="940" y="800" text-anchor="middle" class="body">throw RuntimeException</text>
+  <text x="940" y="826" text-anchor="middle" class="body">"Book is already borrowed."</text>
+
+  <ellipse cx="1000" cy="950" rx="58" ry="30" class="terminal"/>
+  <text x="1000" y="956" text-anchor="middle" class="body">End</text>
+
+  <path d="M 168 100 H 210" class="arrow"/>
+
+  <path d="M 390 100 H 560" class="arrow"/>
+  <text x="474" y="84" class="label">T</text>
+
+  <path d="M 300 155 V 185" class="arrow"/>
+  <text x="314" y="172" class="label">F</text>
+
+  <path d="M 390 240 H 470 V 165 H 560" class="arrow"/>
+  <text x="486" y="150" class="label">T</text>
+
+  <path d="M 300 295 V 370" class="arrow"/>
+  <text x="314" y="336" class="label">F</text>
+
+  <path d="M 695 220 H 1230 V 950 H 942" class="arrow"/>
+
+  <path d="M 410 430 H 500" class="arrow"/>
+  <text x="450" y="414" class="label">T</text>
+
+  <path d="M 300 490 V 560" class="arrow"/>
+  <text x="314" y="528" class="label">F</text>
+
+  <path d="M 740 430 H 820" class="arrow"/>
+  <text x="776" y="414" class="label">T</text>
+
+  <path d="M 620 370 V 300 H 300 V 370" class="arrow"/>
+  <text x="456" y="284" class="label">F</text>
+
+  <path d="M 940 490 V 580" class="arrow"/>
+  <text x="954" y="540" class="label">T</text>
+
+  <path d="M 940 370 V 240 H 300 V 370" class="arrow"/>
+  <text x="612" y="224" class="label">F</text>
+
+  <path d="M 1060 640 H 1080" class="arrow"/>
+  <text x="1068" y="624" class="label">T</text>
+
+  <path d="M 940 700 V 760" class="arrow"/>
+  <text x="954" y="734" class="label">F</text>
+
+  <path d="M 1150 673 V 715" class="arrow"/>
+  <path d="M 1150 783 V 825" class="arrow"/>
+
+  <path d="M 300 655 V 920 H 1000" class="arrow"/>
+  <path d="M 940 855 V 920 H 1000" class="arrow"/>
+  <path d="M 1150 893 V 920 H 1000" class="arrow"/>
+</svg>

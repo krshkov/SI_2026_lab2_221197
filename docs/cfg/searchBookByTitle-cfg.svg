@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="900" viewBox="0 0 1040 900">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #1f2937; }
+      .title { font-size: 26px; font-weight: 700; }
+      .label { font-size: 15px; font-weight: 700; }
+      .body { font-size: 17px; }
+      .small { font-size: 15px; }
+      .node { fill: #eef2ff; stroke: #334155; stroke-width: 2.2; }
+      .decision { fill: #fef3c7; stroke: #92400e; stroke-width: 2.2; }
+      .terminal { fill: #dcfce7; stroke: #166534; stroke-width: 2.2; }
+      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 2.2; }
+      .arrow { fill: none; stroke: #475569; stroke-width: 2.6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1040" height="900" fill="#ffffff"/>
+
+  <text x="520" y="38" text-anchor="middle" class="title">CFG за searchBookByTitle</text>
+
+  <ellipse cx="120" cy="90" rx="58" ry="30" class="terminal"/>
+  <text x="120" y="96" text-anchor="middle" class="body">Start</text>
+
+  <polygon points="300,35 390,90 300,145 210,90" class="decision"/>
+  <text x="300" y="96" text-anchor="middle" class="body">title.isEmpty()</text>
+
+  <rect x="560" y="45" width="260" height="90" rx="14" class="error"/>
+  <text x="690" y="82" text-anchor="middle" class="body">throw</text>
+  <text x="690" y="108" text-anchor="middle" class="body">IllegalArgumentException</text>
+
+  <rect x="180" y="205" width="240" height="74" rx="14" class="node"/>
+  <text x="300" y="249" text-anchor="middle" class="body">results = new ArrayList&lt;&gt;()</text>
+
+  <polygon points="300,300 400,360 300,420 200,360" class="decision"/>
+  <text x="300" y="366" text-anchor="middle" class="body">има следна книга?</text>
+
+  <polygon points="620,300 730,360 620,420 510,360" class="decision"/>
+  <text x="620" y="352" text-anchor="middle" class="small">book.getTitle()</text>
+  <text x="620" y="372" text-anchor="middle" class="small">.equalsIgnoreCase(title)</text>
+
+  <polygon points="620,480 730,540 620,600 510,540" class="decision"/>
+  <text x="620" y="546" text-anchor="middle" class="body">!book.isBorrowed()</text>
+
+  <rect x="840" y="505" width="150" height="70" rx="14" class="node"/>
+  <text x="915" y="532" text-anchor="middle" class="body">results</text>
+  <text x="915" y="555" text-anchor="middle" class="body">.add(book)</text>
+
+  <polygon points="300,600 410,660 300,720 190,660" class="decision"/>
+  <text x="300" y="666" text-anchor="middle" class="body">results.isEmpty()</text>
+
+  <rect x="560" y="615" width="220" height="70" rx="14" class="node"/>
+  <text x="670" y="658" text-anchor="middle" class="body">return null</text>
+
+  <rect x="560" y="735" width="220" height="70" rx="14" class="node"/>
+  <text x="670" y="778" text-anchor="middle" class="body">return results</text>
+
+  <ellipse cx="900" cy="830" rx="58" ry="30" class="terminal"/>
+  <text x="900" y="836" text-anchor="middle" class="body">End</text>
+
+  <path d="M 178 90 H 210" class="arrow"/>
+
+  <path d="M 390 90 H 560" class="arrow"/>
+  <text x="472" y="74" class="label">T</text>
+
+  <path d="M 300 145 V 205" class="arrow"/>
+  <text x="314" y="180" class="label">F</text>
+
+  <path d="M 690 135 H 980 V 830 H 842" class="arrow"/>
+
+  <path d="M 300 279 V 300" class="arrow"/>
+
+  <path d="M 400 360 H 510" class="arrow"/>
+  <text x="450" y="344" class="label">T</text>
+
+  <path d="M 300 420 V 600" class="arrow"/>
+  <text x="314" y="520" class="label">F</text>
+
+  <path d="M 620 420 V 480" class="arrow"/>
+  <text x="634" y="454" class="label">T</text>
+
+  <path d="M 620 300 V 240 H 300 V 300" class="arrow"/>
+  <text x="456" y="224" class="label">F</text>
+
+  <path d="M 730 540 H 840" class="arrow"/>
+  <text x="782" y="524" class="label">T</text>
+
+  <path d="M 510 540 H 460 V 360 H 400" class="arrow"/>
+  <text x="470" y="522" class="label">F</text>
+
+  <path d="M 915 505 V 170 H 300 V 300" class="arrow"/>
+
+  <path d="M 410 660 H 560" class="arrow"/>
+  <text x="468" y="644" class="label">T</text>
+
+  <path d="M 300 720 V 770 H 560" class="arrow"/>
+  <text x="314" y="748" class="label">F</text>
+
+  <path d="M 780 650 H 900 V 800" class="arrow"/>
+  <path d="M 780 770 H 900 V 800" class="arrow"/>
+</svg>
